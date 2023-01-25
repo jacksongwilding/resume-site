@@ -1,5 +1,3 @@
-import 'bootstrap';
-
 export default function Navbar() {
   return (
     <nav className="navbar fixed-top navbar-expand-md navbar-light bg-white d-flex justify-content-between p-0">
