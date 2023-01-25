@@ -1,0 +1,5 @@
+.navbar-brand>img {
+    height: 1.5em;
+    cursor: pointer;
+    z-index: 2; 
+}
