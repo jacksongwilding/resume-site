@@ -1,9 +1,11 @@
+import img from '@/'
+
 export default function Navbar() {
   return (
     <nav className="navbar fixed-top navbar-expand-md navbar-light bg-white d-flex justify-content-between p-0">
     <div className='d-flex flex-nowrap justify-content-between py-3 col-md-1'>
-      <div className="navbar-brand display_mobile"><img src="./images/J_W dark noB - fav.svg" /></div>
-      <div className="navbar-brand display_desktop"><img src="./images/Full name-stacked.svg" /></div>
+      <div className="navbar-brand display_mobile"><img src="./public/imgs/J_W dark noB - fav.svg" /></div>
+      <div className="navbar-brand display_desktop"><img src="./public/imgs/Full name-stacked.svg" /></div>
       <button className="navbar-toggler" type="button" >
         <span className="navbar-toggler-icon"></span>
       </button>
