@@ -23,11 +23,8 @@ export default function Navbar() {
           <li className="nav-item pl-4">
             <div className='nav-link education' >Education</div>
           </li>
-          <li className="nav-item pl-4 py-2 w-100 bg-light display_mobile">
-            <div className='nav-link'><strong>Get in touch</strong></div>
-          </li>
         </ul>
-        <div className="btn btn-secondary px-lr-3 display_desktop mr-2">
+        <div className="btn btn-secondary px-lr-3 display_desktop mr-2 rounded-pill">
           Get in touch 
         </div>
       </div>
