@@ -1,34 +1,53 @@
-export default function Navbar() {
-  return (
-    <nav className="navbar fixed-top navbar-expand-md navbar-light bg-white d-flex justify-content-between p-0">
-    <div className='d-flex flex-nowrap justify-content-between py-3 col-md-1'>
-      <div className="navbar-brand display_mobile"><img src="./images/J_W dark noB - fav.svg" /></div>
-      <div className="navbar-brand display_desktop"><img src="./images/Full name-stacked.svg" /></div>
-      <button className="navbar-toggler" type="button" >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div className="navbar-collapse collapsed transition col-md-11 col-lg-11 bg-sm-light bg-none p-0" id="navbarText" > 
-      <div className="d-flex justify-content-between col-lg-12 p-0">
-        <ul className="navbar-nav w-auto mr-auto ml-md-3 ml-lg-1 col-12 col-md-9 p-0">
-          <li className="nav-item pl-4 active">
-          <div className='nav-link description' >Bio</div>
-          </li>
-          <li className="nav-item pl-4">
-            <div className='nav-link experience' >Experiences</div>
-          </li>
-          <li className="nav-item pl-4">
-            <div className='nav-link skills' >Skills</div>
-          </li>
-          <li className="nav-item pl-4">
-            <div className='nav-link education' >Education</div>
-          </li>
-        </ul>
-        <div className="btn btn-secondary px-lr-3 display_desktop mr-2 rounded-pill">
-          Get in touch 
+import { useWindowSize } from "@/hooks/useWindowSize"
+import { BreakPoints } from "@/hooks/breakpoints";
+import { useState } from 'react';
+const { mobileSize, tabletSize, laptopSize } = BreakPoints()
+
+function getInTouchButton(windowWidth: number) {
+    if (windowWidth < laptopSize) {
+        return (
+            <li className="nav-item ps-3 py-2 w-100 bg-light" >
+                <a className='nav-link'  href="#"><strong>Get in touch</strong></a>
+            </li>
+        )
+    }
+
+    return (
+        <div className="btn btn-secondary mr-2 rounded-pill m-3'">
+            Get in touch
         </div>
-      </div>
-    </div>
-  </nav>
-  )
+    )
+}
+
+
+export default function Navbar() {
+    const { width } = useWindowSize();
+    const deviceIsMobile = width < laptopSize
+    return (
+        <nav className={"navbar fixed-top navbar-expand-lg navbar-light bg-white d-flex justify-content-evenly " + (deviceIsMobile ? "p-0 navbar-expand-lg" : "p-3")}>
+            <div className='d-flex flex-nowrap justify-content-evenly'>
+                <div className="navbar-brand"><img src={deviceIsMobile ? `/imgs/J_W dark noB - fav.svg` : "/imgs/Full name-stacked.svg"} /></div>
+            </div>
+            <div className="navbar-collapse collapsed transition bg-none p-0" id="navbarText" >
+                <div className={"d-flex justify-content-between w-100 p-0 " + (deviceIsMobile ? `flex-column` : "")}>
+                    <ul className="navbar-nav w-auto mr-auto">
+                        <li className="nav-item ps-3 active">
+                            <a className='nav-link description' href="#">Bio</a>
+                        </li>
+                        <li className="nav-item ps-3">
+                            <a className='nav-link experience' href="#">Experiences</a>
+                        </li>
+                        <li className="nav-item ps-3">
+                            <a className='nav-link skills' href="#">Skills</a>
+                        </li>
+                        <li className="nav-item ps-3">
+                            <a className='nav-link education' href="#">Education</a>
+                        </li>
+                        {deviceIsMobile && getInTouchButton(width)}
+                    </ul>
+                    {!deviceIsMobile && getInTouchButton(width)}
+                </div>
+            </div>
+        </nav>
+    )
 }
