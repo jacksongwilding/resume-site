@@ -1,5 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .navbar-brand>img {
     height: 1.5em;
     cursor: pointer;
-    z-index: 2; 
+    z-index: 2;
+}
+
+.no-border {
+    border: none;
+    color: rgba(0, 0, 0, 0);
+}
+.navbar {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+}
+
+.banner {
+    top: 0;
+    height: 70vh;
+    position: absolute;
+    z-index: -2;
+    background-position: center, center;
+    background-size: cover, cover;
 }
